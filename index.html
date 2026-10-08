@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوره جامع آمار استنباطی | استایل نوا</title>
+    
+    <!-- MathJax برای فرمول‌های ریاضی -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;400;700&display=swap');
+
+        :root {
+            --primary-blue: #2575fc;
+            --primary-green: #2ecc71;
+            --primary-purple: #8b5cf6;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header.main-header {
+            text-align: center;
+            padding: 50px 0;
+        }
+        header.main-header h1 { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 10px; }
+        header.main-header p { font-size: 1.2rem; color: #64748b; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .menu-card {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-bottom: 8px solid transparent;
+        }
+        .menu-card:hover { transform: translateY(-10px); }
+        .menu-card .icon { font-size: 3.5rem; margin-bottom: 20px; }
+        .menu-card h2 { margin-bottom: 15px; }
+        .menu-card p { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
+
+        .mod1-card { border-color: var(--primary-blue); }
+        .mod1-card h2 { color: var(--primary-blue); }
+        .mod2-card { border-color: var(--primary-green); }
+        .mod2-card h2 { color: var(--primary-green); }
+        .mod3-card { border-color: var(--primary-purple); }
+        .mod3-card h2 { color: var(--primary-purple); }
+
+        .module-header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .bg-blue { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); }
+        .bg-green { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
+        .bg-purple { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); }
+
+        .btn-back {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Vazirmatn';
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .btn-back:hover { background: #eee; }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-right: 6px solid #ddd;
+        }
+        .card h2 { margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        
+        .highlight-box { background-color: #f0f7ff; border-radius: 10px; padding: 15px; border-right: 4px solid var(--primary-blue); margin: 15px 0; }
+        .warning-box { background-color: #fff5f5; border-radius: 10px; padding: 15px; border-right: 4px solid #ff4d4d; margin: 15px 0; color: #c53030; }
+        .gold-box { background-color: #fffdf0; border-radius: 10px; padding: 15px; border-right: 4px solid #f6ad55; margin: 15px 0; font-weight: bold; }
+        .formula-box { background-color: #f9f9f9; border: 2px dashed #ccc; border-radius: 15px; padding: 20px; text-align: center; margin: 20px 0; font-size: 1.3rem; }
+
+        .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .tool-item { background: #fcfaff; border: 1px solid #ddd6fe; padding: 15px; border-radius: 12px; }
+        .tool-title { font-weight: bold; color: #5b21b6; display: block; margin-bottom: 8px; }
+        .pro { color: #059669; font-size: 0.9rem; }
+        .con { color: #dc2626; font-size: 0.9rem; }
+
+        .footer { text-align: center; margin-top: 50px; color: #94a3b8; font-size: 0.9rem; }
+    </style>
+</head>
+<body dir="rtl">
+
+<div class="container">
+
+    <!-- صفحه منوی اصلی -->
+    <div id="home" class="page active">
+        <header class="main-header">
+            <h1>📊 دوره جامع آمار استنباطی</h1>
+            <p>یادگیری ساده، سریع و مفهومی به استایل نوا</p>
+        </header>
+        <div class="menu-grid">
+            <div class="menu-card mod1-card" onclick="showPage('module1')">
+                <div class="icon">📦</div>
+                <h2>ماژول ۱</h2>
+                <p>مبانی آمار، مفاهیم پایه و هنر نمونه‌گیری (چطور درست انتخاب کنیم؟)</p>
+                <div style="color:var(--primary-blue); font-weight:bold;">شروع یادگیری 🚀</div>
+            </div>
+            <div class="menu-card mod2-card" onclick="showPage('module2')">
+                <div class="icon">🎯</div>
+                <h2>ماژول ۲</h2>
+                <p>برآوردها، فرمول‌های طلایی و محاسبه بازه اطمینان (دنیای اعداد)</p>
+                <div style="color:var(--primary-green); font-weight:bold;">ورود به محاسبات 📉</div>
+            </div>
+            <div class="menu-card mod3-card" onclick="showPage('module3')">
+                <div class="icon">🔍</div>
+                <h2>ماژول ۳</h2>
+                <p>ابزارهای گردآوری داده‌ها، تفاوت پارامتر و آماره و جمع‌بندی نهایی</p>
+                <div style="color:var(--primary-purple); font-weight:bold;">تکمیل دوره 🎓</div>
+            </div>
+        </div>
+        <div class="footer">طراحی شده برای یادگیری مفهومی — استایل نوا 🚀</div>
+    </div>
+
+    <!-- صفحه ماژول ۱ -->
+    <div id="module1" class="page">
+        <button class="btn-back" onclick="showPage('home')">⬅️ بازگشت به منو</button>
+        <div class="module-header bg-blue">
+            <h1>📊 آمار استنباطی (بخش اول)</h1>
+            <p>مبانی و هنر نمونه‌گیری</p>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-blue);">
+            <h2>💡 ایده اصلی: چرا نمونه بگیریم؟</h2>
+            <p>فکر کن می‌خوای بدونی یه دیگ بزرگ آش نمکشه یا نه. فقط یک قاشق ازش رو برمی‌داری و می‌چشی.</p>
+            <div class="highlight-box">تو با خوردن یک قاشق (نمونه)، درباره کل دیگ (جامعه) تصمیم گرفتی.</div>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-blue);">
+            <h2>📦 واژگان کلیدی</h2>
+            <ul>
+                <li><b>واحد آماری 👤:</b> هر یک قاشق آش.</li>
+                <li><b>جامعه آماری 🌍:</b> کل دیگ آش.</li>
+                <li><b>نمونه 🤏:</b> بخش کوچیکی که جدا می‌کنیم.</li>
+                <li><b>سرشماری 📋:</b> بررسی تک تک اعضا.</li>
+            </ul>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-blue);">
+            <h2>⚠️ تلهٔ اریبی (Bias)</h2>
+            <div class="warning-box">مثلاً اگه فقط از آدم‌های پولدار بپرسی مردم شهر چقدر درآمد دارن، نتیجه "اریب" و غلط می‌شه!</div>
+            <div class="gold-box">💡 نکته طلایی: مشکل اریبی با زیاد کردن تعداد نمونه حل نمی‌شه، بلکه با "روش درست" حل می‌شه.</div>
+        </div>
+    </div>
+
+    <!-- صفحه ماژول ۲ -->
+    <div id="module2" class="page">
+        <button class="btn-back" onclick="showPage('home')">⬅️ بازگشت به منو</button>
+        <div class="module-header bg-green">
+            <h1>🎯 آمار استنباطی (بخش دوم)</h1>
+            <p>برآورد و محاسبات</p>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-green);">
+            <h2>📉 انحراف معیار میانگین (خطا)</h2>
+            <div class="formula-box">$$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$</div>
+            <div class="highlight-box">
+                - $\sigma$ بالا $\rightarrow$ خطا بیشتر 📈<br>
+                - $n$ بالا $\rightarrow$ خطا کمتر 📉
+            </div>
+            <div class="gold-box">💡 کلید امتحان: برای کم کردن خطا، تعداد نمونه ($n$) را زیاد کن!</div>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-green);">
+            <h2>📏 بازه اطمینان ۹۵٪</h2>
+            <div class="formula-box">$$\bar{x} - \frac{2\sigma}{\sqrt{n}} \leq \mu \leq \bar{x} + \frac{2\sigma}{\sqrt{n}}$$</div>
+            <p>به جای یک عدد تک، یک "محدوده امن" اعلام می‌کنیم تا احتمال درست بودن حرفمون بالا بره.</p>
+        </div>
+    </div>
+
+    <!-- صفحه ماژول ۳ -->
+    <div id="module3" class="page">
+        <button class="btn-back" onclick="showPage('home')">⬅️ بازگشت به منو</button>
+        <div class="module-header bg-purple">
+            <h1>🔍 آمار استنباطی (بخش سوم)</h1>
+            <p>گردآوری داده‌ها و جمع‌بندی</p>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-purple);">
+            <h2>🛠️ جعبه ابزار پژوهشگر</h2>
+            <div class="tool-grid">
+                <div class="tool-item">
+                    <span class="tool-title">👁️ مشاهده</span>
+                    <div class="pro">✅ واقعی‌ترین رفتار</div>
+                    <div class="con">❌ وقت‌گیر</div>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-title">📝 پرسشنامه</span>
+                    <div class="pro">✅ سریع و ارزان</div>
+                    <div class="con">❌ احتمال جواب غلط</div>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-title">🎙️ مصاحبه</span>
+                    <div class="pro">✅ جزئیات دقیق</div>
+                    <div class="con">❌ تحلیل سخت</div>
+                </div>
+                <div class="tool-item">
+                    <span class="tool-title">📚 دادگان</span>
+                    <div class="pro">✅ سریع (آماده)</div>
+                    <div class="con">❌ احتمال قدیمی بودن</div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="border-right-color: var(--primary-purple);">
+            <h2>🎓 پارامتر vs آماره</h2>
+            <div class="highlight-box" style="display:flex; justify-content: space-around; text-align:center;">
+                <div><b>پارامتر 🌍</b><br>کل جامعه</div>
+                <div><b>آماره 🤏</b><br>فقط نمونه</div>
+            </div>
+            <div class="gold-box">💡 ما "آماره" رو حساب می‌کنیم تا "پارامتر" رو حدس بزنیم.</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showPage(pageId) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
